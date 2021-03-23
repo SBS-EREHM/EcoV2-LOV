@@ -20,7 +20,7 @@ def ecoRead(filename, usecols, names, sep='\t', skiprows=None, splitDate='False'
         datetime_series = pd.to_datetime(df['date'])
     elif splitDate == 'boussole2020' :
         # Dec + 9  + 2020 + 11:38:04  (month is mislabeled as day_name in file header)
-        datetime_series = pd.to_datetime(df['month'] + ' ' + df['day'].astype(str) + ' ' + df['year'].astype(str) + ' ' + df['time'])
+        datetime_series = pd.to_datetime(df['month'] + ' ' + df['day'].astype(int).astype(str) + ' ' + df['year'].astype(int).astype(str) + ' ' + df['time'])
     else :
         if splitDate :
             #[Thu Jun 18 09:09:53.952 2020] ECOV2-CREE00530	06/18/20	09:09:34
